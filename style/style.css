@@ -9,7 +9,57 @@
   width: 100px;
   display: inline-block;
 }
+.input-group {
+  width: 100%;
+  margin: 10px 0;
+}
+.input-form {
+  width: 60%;
+}
+.item-field {
+  margin-bottom: 20px;
+}
+
+.item-field .desc,
+.item-fielf .amount {
+  margin-right: 10px;
+}
+
+.desc {
+  width: 50%;
+  display: inline-block;
+}
+
+.amount {
+  width: 10%;
+}
 
 .item-list {
   margin-bottom: 30px;
+}
+
+.column-head {
+  width: 100%;
+  display: inline-flex;
+  margin-bottom: 20px;
+}
+
+.btn {
+  margin: 10px 20px;
+}
+
+.total {
+  text-align: right;
+}
+
+@media (max-width: 480px) {
+  .desc {
+    width: 60%;
+  }
+  .amount {
+    width: 35%;
+  }
+  .input-form {
+    width: 100%;
+  }
 }

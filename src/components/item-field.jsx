@@ -7,16 +7,16 @@ class ItemField extends Component {
 
     return (
       <div className="item-field">
-        <input className="col-md-6"
+        <input className="desc"
           ref="desc"
           type="text"
           itemindex={itemindex}
           value={description}
           onChange={onUpdate}/>
-        <input className="col-md-6"
+        <input className="amount"
           ref="amount"
           type="text"
-          itemindex={itemindex} 
+          itemindex={itemindex}
           value={amount}
           onChange={onUpdate}/>
       </div>

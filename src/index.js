@@ -12,6 +12,7 @@ class App extends Component {
     this.handleItemUpdate = this.handleItemUpdate.bind(this);
     this.handleItemUpdate = this.handleItemUpdate.bind(this);
     this.handleAddItem = this.handleAddItem.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.caculateAmount = this.caculateAmount.bind(this);
 
     this.state = {
@@ -54,9 +55,12 @@ class App extends Component {
     this.setState({items: newItemState});
   }
 
+  handleSubmit() {
+    console.log(this.state)
+  }
+
   caculateAmount() {
     const { items } = this.state;
-
     // pass dummy data for calculation
     const dummyItemData = {
       apple: {
@@ -77,7 +81,7 @@ class App extends Component {
       const itemPrice = dummyItemData[itemName].price;
       return pre += itemAmount*itemPrice
     }, 0);
-    return <span>{Number.parseFloat(total).toFixed(2)}</span>;
+    return <span>{"$" + Number.parseFloat(total).toFixed(2)}</span>;
   }
 
   _getItemData(refs, itemindex) {
@@ -103,12 +107,12 @@ class App extends Component {
         <form ref="form" className="form-control invoice-head">
           <Field ref="name" type={"text"} value={name} label={"Name"} onUpdate={this.handleInputUpdate}/>
           <Field ref="email" type={"email"} value={email} label={"Email"} onUpdate={this.handleInputUpdate}/>
-          <Field ref="date" type={"text"} value={date} label={"Due Date"} onUpdate={this.handleInputUpdate}/>
+        <Field ref="date" type={"date"} value={date} label={"Due Date"} onUpdate={this.handleInputUpdate}/>
         </form>
         <div className="item-list">
-          <div>
-            <div className="col-md-6">Description</div>
-            <div className="col-md-6">Amount</div>
+          <div className="column-head">
+            <div className="desc">Description</div>
+          <div className="amount">Amount</div>
           </div>
 
           { items.map((item, index)=> (
@@ -120,14 +124,13 @@ class App extends Component {
               item={item}/>
           ))
           }
-
         </div>
 
-         <div>Total: {this.caculateAmount()}</div>
+         <div className="total">Total: {this.caculateAmount()}</div>
 
 
-        <button className="btn btn-success btn-sm" onClick={this.handleAddItem}>Add New Item</button>
-        <button className="btn btn-primary btn-sm">Send</button>
+       <button className="btn btn-success btn-sm" onClick={this.handleAddItem}>+</button>
+      <button className="btn btn-primary btn-sm" onClick={this.handleSubmit}>Send</button>
       </div>
     )
   }

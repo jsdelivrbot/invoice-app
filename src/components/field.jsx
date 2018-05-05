@@ -8,7 +8,7 @@ class Field extends Component {
     return (
       <div className="input-group">
         <span className="form-label">{label}</span>
-        <input ref={label} type={type} value={value} onChange={onUpdate}/>
+      <input className="input-form" ref={label} type={type} value={value} onChange={onUpdate}/>
       </div>
     );
   }
