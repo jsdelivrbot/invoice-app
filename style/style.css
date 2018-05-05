@@ -1,0 +1,15 @@
+.container {
+  padding-top: 30px;
+}
+.invoice-head {
+  margin-bottom: 30px;
+}
+
+.form-label {
+  width: 100px;
+  display: inline-block;
+}
+
+.item-list {
+  margin-bottom: 30px;
+}
